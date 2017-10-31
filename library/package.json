@@ -1,0 +1,23 @@
+{
+  "name": "bone-master",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npm install",
+    "yarn": "yarn install",
+    "serve": "gulp"
+  },
+  "author": "Chee Chiew",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11"
+  }
+}
