@@ -5,6 +5,10 @@ Bones is designed to make the life of developers easier. It's built
 using HTML5 & has a strong semantic foundation.
 Bones is a rock solid foundation to start any WordPress project.
 
+### Guide ###
+
+The theme setup to use Gulp to compile SCSS and minify JavaScript files.
+
 ### Front-end Framework ###
 
 * [Bootstrap 3.3.7](https://getbootstrap.com/)

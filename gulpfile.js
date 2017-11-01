@@ -1,6 +1,6 @@
 // Gulp
 var gulp = require('gulp'),
-  watch = require('gulp-watch'),
+  livereload = require('gulp-livereload'),
   sass = require('gulp-sass'),
   autoprefixer = require('gulp-autoprefixer'),
   concat = require('gulp-concat'),
@@ -10,10 +10,10 @@ var gulp = require('gulp'),
 
 // Styles tasks
 gulp.task('styles', function () {
-  return gulp.src('./sass/**/*.scss')
+  return gulp.src('./library/sass/**/*.scss')
     .pipe(plumber())
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./library/css'))
       .pipe(
         sass({
           outputStyle: 'compressed'
@@ -30,24 +30,26 @@ gulp.task('styles', function () {
         cascade: false
       })
     )
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./library/css'))
+    .pipe(livereload());
 });
 
 // Scripts tasks
 gulp.task('scripts:vendors', function () {
   return gulp.src([
-      "./js/vendors/mobile-detect.min.js",
-      "./js/vendors/mobile-detect-modernizr.js",
-      "./js/vendors/cssua.min.js",
-      "./js/vendors/vue.min.js",
-      "./js/vendors/**/*.js"
+      "./library/js/vendors/mobile-detect.min.js",
+      "./library/js/vendors/mobile-detect-modernizr.js",
+      "./library/js/vendors/cssua.min.js",
+      "./library/js/vendors/vue.min.js",
+      "./library/js/vendors/**/*.js"
     ])
     .pipe(plumber())
     .pipe(concat('vendors.js'))
-    .pipe(gulp.dest('./js/'));
+    .pipe(gulp.dest('./library/js/'))
+    .pipe(livereload());
 });
 gulp.task('scripts:vendors:min', ['scripts:vendors'], function () {
-  return gulp.src('./js/vendors.js')
+  return gulp.src('./library/js/vendors.js')
     .pipe(plumber())
     .pipe(uglify())
     .pipe(
@@ -55,10 +57,11 @@ gulp.task('scripts:vendors:min', ['scripts:vendors'], function () {
         suffix: '.min'
       })
     )
-    .pipe(gulp.dest('./js/'));
+    .pipe(gulp.dest('./library/js/'))
+    .pipe(livereload());
 });
 gulp.task('scripts:app', function () {
-  return gulp.src('./js/app.js')
+  return gulp.src('./library/js/app.js')
     .pipe(plumber())
     .pipe(uglify())
     .pipe(
@@ -66,14 +69,16 @@ gulp.task('scripts:app', function () {
         suffix: '.min'
       })
     )
-    .pipe(gulp.dest('./js/'));
+    .pipe(gulp.dest('./library/js/'))
+    .pipe(livereload());
 });
 gulp.task('scripts', ['scripts:vendors', 'scripts:vendors:min', 'scripts:app']);
 
 // Watch tasks
 gulp.task ('watch', function () {
-  gulp.watch('./sass/**/*.scss', ['styles']);
-  gulp.watch('./js/app.js', ['scripts:app']);
+  livereload.listen();
+  gulp.watch('./library/sass/**/*.scss', ['styles']);
+  gulp.watch('./library/js/app.js', ['scripts:app']);
 });
 
 // Gulp default

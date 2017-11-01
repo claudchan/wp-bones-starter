@@ -67,5 +67,10 @@ node_modules/
 bower_components/
 .sass-cache
 
+# Lock files #
+######################
+package-lock.json
+yarn.lock
+
 
 
