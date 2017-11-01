@@ -11,7 +11,7 @@ The theme setup to use Gulp to compile SCSS and minify JavaScript files.
 
 Require
 * [Node.js](https://nodejs.org/)
-* [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
+* [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) (Chrome Extension)
 
 Usage:
 * install dependencies: `run npm install`
