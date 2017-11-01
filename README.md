@@ -1,4 +1,4 @@
-# WP Bones Starter Bones
+# WP Bones Starter
 Wordpress Development Theme based on [Bones](https://themble.com/bones/)
 
 Bones is designed to make the life of developers easier. It's built
