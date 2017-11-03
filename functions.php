@@ -481,6 +481,11 @@ function general_settings_register_fields_copyright_message() {
 }
 
 
+// ACF Advanced Custom Fields Setup
+require_once( 'library/bootstrap-acf.php' );
+require_once( 'library/acf.php' );
+
+
 
 
 
