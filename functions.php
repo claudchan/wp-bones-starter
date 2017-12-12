@@ -468,8 +468,6 @@ add_action( 'init', 'register_bootstrap_navbar' );
 
 
 // Add custom copyright field under wp general settings
-add_filter('admin_init', 'general_settings_register_fields_copyright_text');
-
 function general_settings_register_fields_copyright_text() {
 	register_setting('general', 'copyright_message', 'esc_attr');
 	add_settings_field('copyright_message', '<label for="copyright_message">'.__('Copyright Message' , 'copyright_message' ).'</label>' , 'general_settings_register_fields_copyright_message', 'general');
@@ -479,6 +477,8 @@ function general_settings_register_fields_copyright_message() {
 	$copyright_message = get_option( 'copyright_message', '' );
 	echo '<input name="copyright_message" type="text" id="copyright_message" value="' . $copyright_message . '" class="regular-text" />';
 }
+
+add_filter('admin_init', 'general_settings_register_fields_copyright_text');
 
 
 // ACF Advanced Custom Fields Setup

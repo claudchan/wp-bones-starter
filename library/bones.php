@@ -159,6 +159,11 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'vendors-js' );
 		wp_enqueue_script( 'app-js' );
 
+		/*
+		Localized scripts
+		*/
+		wp_localize_script( 'app-js', 'appData', array( 'site_url' => get_site_url() ) );
+
 	}
 }
 
